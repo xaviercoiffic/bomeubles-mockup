@@ -1,0 +1,77 @@
+/* ==========================================================================
+   Bo Meubles overrides for the Intrio template.
+
+   Loaded LAST, after style.css, coloring.css and the colour scheme, so the
+   template files stay pristine and every deviation from stock Intrio is
+   visible in this one file.
+
+   Scope is deliberately tiny. This is an accessibility fix, not a restyle.
+   ========================================================================== */
+
+/* Intrio paints .id-color icons in the brand brown (#805231). On the dark
+   surfaces (#34241C) used by the off-canvas panel and the dark bands that is
+   2.24:1, well below the WCAG AA 3:1 minimum for a meaningful icon. A lighter
+   tint of the same brand hue reaches 5.86:1 and keeps the palette intact. */
+.bg-dark .id-color,
+.section-dark .id-color,
+#extra-wrap .id-color,
+footer .id-color {
+  color: #C89A6B;
+}
+
+/* Keyboard focus is invisible in stock Intrio. Anyone navigating by keyboard
+   cannot tell where they are, so a visible ring is added on the interactive
+   elements the five pages actually use. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+#menu-btn:focus-visible,
+#btn-extra:focus-visible {
+  outline: 3px solid #C89A6B;
+  outline-offset: 3px;
+}
+
+/* Skip link, so keyboard and screen reader users can bypass the header. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 2000;
+  background: #34241C;
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+}
+
+/* Mockup only. A small fixed pill, deliberately out of the document flow: the
+   template header is position:absolute at top:0, so any banner in normal flow
+   would sit underneath it. Remove this rule and its markup at build time. */
+.mock-note {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1003;
+  max-width: 320px;
+  background: rgba(75, 90, 69, .95);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  padding: 10px 14px;
+  border-radius: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+}
+.mock-note strong { font-weight: 700; }
+@media (max-width: 767px) { .mock-note { display: none; } }
+
+/* The hero headline is split across two elements in the template, both of them
+   <h1>. The second is changed to a div carrying .h1 so each page has exactly
+   one h1; this restores the colour the h1 selector was providing. */
+.text-light .h1,
+.section-dark .h1 { color: #fff; }

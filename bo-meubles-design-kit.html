@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<title>Bo Meubles | Design kit</title>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Design tokens, typography, components and contrast results for the Bo Meubles website." name="description">
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+<link href="css/plugins.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/coloring.css" rel="stylesheet" type="text/css">
+<link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+<link href="css/bo-meubles.css" rel="stylesheet" type="text/css">
+<style>
+body { padding-bottom: 80px; }
+.kit-head { padding: 60px 0 36px; border-bottom: 1px solid rgba(52,31,22,.15); margin-bottom: 56px; }
+.kit-section { margin-bottom: 72px; }
+.kit-section > h2 { font-size: 28px; margin-bottom: 6px; }
+.kit-note { color: rgba(52,31,22,.75); margin-bottom: 24px; max-width: 74ch; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; text-transform: none; letter-spacing: 0; }
+.sw { border: 1px solid rgba(52,31,22,.12); }
+.sw .chip { height: 92px; }
+.sw .meta { padding: 12px; font-size: 14px; background: #fff; }
+.sw .meta strong { display: block; }
+table.kit { width: 100%; font-size: 15px; border-collapse: collapse; }
+table.kit th, table.kit td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(52,31,22,.12); vertical-align: top; }
+.pass { color: #1F6B34; font-weight: 700; }
+.fail { color: #A32114; font-weight: 700; }
+.spec-line { border-bottom: 1px solid rgba(52,31,22,.1); padding: 18px 0; }
+.spec-line .lbl { font-size: 13px; color: rgba(52,31,22,.65); text-transform: none; letter-spacing: 0; }
+.warn { border-left: 4px solid #805231; background: #F7F5F3; padding: 16px 20px; }
+.on-dark { background: #34241C; color: rgba(255,255,255,.8); padding: 28px; }
+.on-dark h3, .on-dark h4 { color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="kit-head">
+    <div class="subtitle">Design kit</div>
+    <h1 class="hs-2">Bo Meubles</h1>
+    <p class="kit-note" style="margin-top:12px;">Reference for the WordPress and Elementor Pro rebuild. The design system is the
+    Intrio template by Designesia, unchanged. Everything below is read from the template's own stylesheets, so this page and the
+    five mockup pages can never drift apart.</p>
+  </div>
+
+  <section class="kit-section">
+    <h2>Colours</h2>
+    <p class="kit-note">Template tokens. Accent values come from <span class="mono">css/colors/scheme-01.css</span>, surfaces and
+    text from <span class="mono">css/style.css</span>. In Elementor these become Site Settings, Global Colors.</p>
+    <div class="row g-3" id="swatches"></div>
+    <div class="warn mt-4">
+      <strong>Carry this rule into the rebuild.</strong> The brand brown <span class="mono">#805231</span> reads 5.59:1 on the
+      cream surface, which passes, but only 2.24:1 on the dark surface <span class="mono">#34241C</span>. Anywhere it lands on a
+      dark band it is lightened to <span class="mono">#C89A6B</span> (5.86:1). That override lives in
+      <span class="mono">css/bo-meubles.css</span> and is the only colour change made to the template.
+    </div>
+  </section>
+
+  <section class="kit-section">
+    <h2>Contrast, WCAG AA</h2>
+    <p class="kit-note">4.5:1 for body text, 3:1 for large text and meaningful icons. Semi-transparent template colours are
+    resolved against the surface they sit on before measuring.</p>
+    <table class="kit" id="contrast"><thead><tr><th>Pair</th><th>Resolved</th><th>Ratio</th><th>AA body</th><th>AA large</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="kit-section">
+    <h2>Typography</h2>
+    <p class="kit-note">Headings and body share one family at <span class="mono">--heading-font</span> and
+    <span class="mono">--body-font</span>. Headings are uppercase with negative tracking. See the build notes: the template's
+    Google Fonts request is invalid, so a real face must be chosen and licensed at build time.</p>
+    <div class="spec-line"><div class="lbl">H1 &middot; 96px desktop, 48px mobile, tracking -0.02em, leading 0.85em</div><div class="h1">Bespoke joinery</div></div>
+    <div class="spec-line"><div class="lbl">H2 &middot; 48px desktop, 36px mobile, tracking -0.96px</div><h2>One craft, five disciplines</h2></div>
+    <div class="spec-line"><div class="lbl">H3 &middot; 26px</div><h3>Dressings and wardrobes</h3></div>
+    <div class="spec-line"><div class="lbl">H4 &middot; 20px</div><h4>Showroom and workshop</h4></div>
+    <div class="spec-line"><div class="lbl">Subtitle / eyebrow &middot; 18px, uppercase, weight 500</div><div class="subtitle">What we make</div></div>
+    <div class="spec-line"><div class="lbl">Body &middot; 16px / 30px, tracking -0.16px</div><p style="max-width:62ch;">Every piece starts on site, with a tape measure and a conversation. Nothing is ordered from a catalogue, so nothing has to be forced into a space it was not made for.</p></div>
+  </section>
+
+  <section class="kit-section">
+    <h2>Buttons and links</h2>
+    <p class="kit-note">Stock Intrio button, square corners, uppercase, bold. The <span class="mono">fx-slide</span> variant slides
+    the label on hover. Focus rings are added by the override stylesheet because stock Intrio has none.</p>
+    <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+      <a href="#" class="btn-main">Book a showroom visit</a>
+      <a href="#" class="btn-main fx-slide"><span>See our projects</span></a>
+      <a href="#" class="btn-main btn-dark-trans">Secondary</a>
+    </div>
+    <div class="on-dark d-flex flex-wrap gap-3 align-items-center">
+      <a href="#" class="btn-main">Primary on dark</a>
+      <a href="#" class="btn-main btn-light-trans">Ghost on dark</a>
+    </div>
+  </section>
+
+  <section class="kit-section">
+    <h2>Cards and media</h2>
+    <p class="kit-note">The project and discipline cards are one pattern: full bleed image, gradient edge, heading overlaid
+    bottom left, arrow top right, image scales on hover. Radius is 0 throughout, per <span class="mono">--rounded-1</span>.</p>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="hover"><div class="relative overflow-hidden">
+          <a href="#" class="d-block hover relative text-light">
+            <img src="images/misc/up-right-arrow.webp" class="abs w-80px p-20 z-2 top-0 end-0 p-4 hover-op-1" alt="">
+            <div class="abs w-50 z-4 p-4 mb-0"><h2 class="fs-36">Wall Library, Salines</h2></div>
+            <div class="relative overflow-hidden rounded-1"><img src="images/projects-wide/1.webp" class="w-100 hover-scale-1-2" alt="Arched built-in wall library"></div>
+            <div class="gradient-edge-top op-5 h-70"></div>
+            <div class="extra-text abs lh-1 m-4 bottom-0 z-4 d-flex">
+              <div class="bg-blur p-2 me-2">Private Residence</div>
+              <div class="bg-blur p-2 me-2">Black River</div>
+            </div>
+          </a>
+        </div></div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="hover"><div class="relative overflow-hidden">
+          <a href="#" class="d-block hover relative text-light">
+            <div class="abs z-4 p-4 pb-0 bottom-0 mb-0"><h2 class="fs-40">Kitchens</h2></div>
+            <div class="relative overflow-hidden rounded-1"><img src="images/services/3.webp" class="w-100 hover-scale-1-2" alt="Bespoke kitchen"></div>
+            <div class="gradient-edge-bottom h-70"></div>
+          </a>
+        </div></div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="de_count"><h3 class="fs-40 mb-0">27</h3>Years In The Workshop</div>
+        <div class="spacer-single"></div>
+        <div class="de_count"><h3 class="fs-40 mb-0">60+</h3>Projects Delivered</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kit-section">
+    <h2>Form elements</h2>
+    <p class="kit-note">Template form styling, with the focus ring added. In Elementor these become the Form widget fields.</p>
+    <div class="row"><div class="col-md-6">
+      <div class="field-set mb-3"><input type="text" class="form-control" placeholder="Your Name"></div>
+      <div class="field-set mb-3"><input type="email" class="form-control" placeholder="Your Email"></div>
+      <div class="field-set mb-3"><textarea class="form-control" rows="3" placeholder="Your Message"></textarea></div>
+      <a href="#" class="btn-main">Send message</a>
+    </div></div>
+  </section>
+
+  <section class="kit-section">
+    <h2>Spacing and grid</h2>
+    <p class="kit-note">Bootstrap 5 twelve column grid. Container 1200px at 1200px up, 1304px at 1400px up. Sections are
+    100px top and bottom on desktop, 40px below 768px. Spacer helpers are 30, 60 and 90px.</p>
+    <table class="kit">
+      <tr><th>Token</th><th>Value</th><th>Elementor equivalent</th></tr>
+      <tr><td class="mono">section padding</td><td>100px 0 desktop, 40px 0 mobile</td><td>Container padding, per breakpoint</td></tr>
+      <tr><td class="mono">--container-max-width</td><td>1240px, Bootstrap overrides to 1200 / 1304</td><td>Site Settings, Layout, Content Width 1200px</td></tr>
+      <tr><td class="mono">.spacer-single / -double / -triple</td><td>30 / 60 / 90px</td><td>Spacer widget or container gap</td></tr>
+      <tr><td class="mono">--rounded-1</td><td>0px</td><td>Border radius 0 on all images and containers</td></tr>
+      <tr><td class="mono">row g-4</td><td>24px gutter</td><td>Container gap 24px</td></tr>
+    </table>
+  </section>
+
+</div>
+
+<script src="js/vendors.js"></script>
+<script>
+(function () {
+  var css = getComputedStyle(document.documentElement);
+  function hex(c) {
+    var d = document.createElement('div'); d.style.color = c; document.body.appendChild(d);
+    var m = getComputedStyle(d).color.match(/[\d.]+/g); d.remove();
+    if (!m) return '#000000';
+    var out = '#' + m.slice(0,3).map(function (n) { return (+n).toString(16).padStart(2,'0'); }).join('').toUpperCase();
+    return m.length > 3 ? out + ' @ ' + m[3] : out;
+  }
+  var tokens = [
+    ['Brand brown', '--primary-color'],
+    ['Secondary', '--secondary-color'],
+    ['Surface, default', '--bg-default'],
+    ['Surface, light', '--bg-light'],
+    ['Dark 1', '--bg-dark-1'],
+    ['Dark 2', '--bg-dark-2'],
+    ['Dark 3', '--bg-dark-3'],
+    ['Heading text', '--heading-font-color'],
+    ['Body text', '--body-font-color']
+  ];
+  document.getElementById('swatches').innerHTML = tokens.map(function (t) {
+    var v = css.getPropertyValue(t[1]).trim();
+    return '<div class="col-lg-2 col-md-3 col-6"><div class="sw"><div class="chip" style="background:' + v + '"></div>' +
+           '<div class="meta"><strong>' + t[0] + '</strong><span class="mono">' + hex(v) + '</span></div></div></div>';
+  }).join('');
+
+  function lum(h) {
+    var c = [1,3,5].map(function (i) {
+      var v = parseInt(h.substr(i,2),16)/255;
+      return v <= 0.04045 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4);
+    });
+    return 0.2126*c[0] + 0.7152*c[1] + 0.0722*c[2];
+  }
+  function ratio(a,b) { var l1 = lum(a), l2 = lum(b); return (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05); }
+
+  var pairs = [
+    ['Body text on cream', '#63564E', '#F0EBE5'],
+    ['Body text on light grey', '#63564E', '#F7F5F3'],
+    ['Headings on cream', '#341F16', '#F0EBE5'],
+    ['Brand brown on cream', '#805231', '#F0EBE5'],
+    ['Button label on brand brown', '#FFFFFF', '#805231'],
+    ['Body text on dark', '#D6D3D2', '#34241C'],
+    ['Headings on dark', '#FFFFFF', '#34241C'],
+    ['Muted 50% text on dark', '#9A928E', '#34241C'],
+    ['Lightened brand on dark, our override', '#C89A6B', '#34241C'],
+    ['Stock brand brown on dark, REPLACED', '#805231', '#34241C']
+  ];
+  document.querySelector('#contrast tbody').innerHTML = pairs.map(function (p) {
+    var r = ratio(p[1], p[2]);
+    var body = r >= 4.5, large = r >= 3;
+    return '<tr><td>' + p[0] + '</td><td class="mono">' + p[1] + ' on ' + p[2] + '</td>' +
+           '<td class="mono">' + r.toFixed(2) + ':1</td>' +
+           '<td class="' + (body?'pass':'fail') + '">' + (body?'Pass':'Fail') + '</td>' +
+           '<td class="' + (large?'pass':'fail') + '">' + (large?'Pass':'Fail') + '</td></tr>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
