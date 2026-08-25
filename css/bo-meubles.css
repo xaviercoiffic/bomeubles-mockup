@@ -75,3 +75,27 @@ select:focus-visible,
    one h1; this restores the colour the h1 selector was providing. */
 .text-light .h1,
 .section-dark .h1 { color: #fff; }
+
+/* The Bo Meubles mark is a square badge, not the wide wordmark the template
+   ships with. Its slots size by width (--logo-width: 130px), which would make
+   it ~132px tall and blow out the header, so size the badge by height instead
+   and let the width follow. */
+div#logo img,
+.logo-main,
+header .logo-scroll,
+header .logo-mobile {
+  width: auto;
+  max-width: none;
+  height: 56px;
+}
+header.smaller div#logo img,
+header.header-mobile div#logo img { height: 44px; }
+
+/* Footer and side-panel marks use fixed-width utility classes. */
+footer img.w-170px,
+#extra-content img.w-150px,
+footer .logo-footer {
+  width: auto;
+  max-width: none;
+  height: 84px;
+}
