@@ -143,3 +143,10 @@ footer .logo-footer {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
+
+/* Copyright and credits line. Set to 11px so the legal/credit line reads as
+   fine print rather than as body copy. Same rule serves all five pages. */
+.subfooter,
+.subfooter a {
+  font-size: 11px;
+}
