@@ -99,3 +99,47 @@ footer .logo-footer {
   max-width: none;
   height: 84px;
 }
+
+/* Project galleries -------------------------------------------------------
+   Each project card on the Réalisations page is an .images-group, which
+   designesia.js hands to magnificPopup as its own gallery. The card image is
+   the first item; the thumbnail strip below carries the rest. */
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+/* Fixed-width tiles rather than fractional tracks: a project with two photos
+   and one with seven then show the same size thumbnail. */
+.gallery-thumbs a {
+  flex: 0 0 96px;
+  display: block;
+  overflow: hidden;
+  border-radius: 2px;
+  line-height: 0;
+}
+.gallery-thumbs img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .4s ease, opacity .3s ease;
+}
+.gallery-thumbs a:hover img { transform: scale(1.08); opacity: .85; }
+
+/* Photo count on the card, mirroring the .bg-blur chips already in use.
+   Bottom right: the title occupies the top left and the tag chips the
+   bottom left, so this is the only free corner. */
+.gallery-count {
+  bottom: 0;
+  right: 0;
+  margin: 1.5rem;
+  padding: .5rem .75rem;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .02em;
+  color: #fff;
+  background: rgba(0, 0, 0, .35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
